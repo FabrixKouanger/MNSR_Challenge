@@ -84,7 +84,7 @@ Mais qui peut l'exécuter? Et avec quels privilèges?
 EOF
 
 # Binaire SUID (core du challenge)
-tee /tmp/create_flag.c > /dev/null << 'EOF'
+cat > /tmp/create_flag.c << 'EOF'
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -106,7 +106,7 @@ gcc /tmp/create_flag.c -o /ctf/binaries/create_flag
 rm /tmp/create_flag.c
 
 # Script piégé
-tee /ctf/binaries/check_permissions.sh > /dev/null << 'EOF'
+tee /ctf/binaries/check_permissions.sh > /dev/null << EOF
 #!/bin/bash
 echo "🔍 Analyse des permissions en cours..."
 echo "FLAG: RM{script_trap_do_not_trust_456}"
