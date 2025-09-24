@@ -1,16 +1,17 @@
-# Exercice : Gestion des utilisateurs, permissions et ACL
+# Challenge Root-Me CTF : "Linux Permissions Master"
 
-## Énoncé du challenge
+## Énoncé du CTF
 
-**Nom du challenge** : `CryptoUser-Permissions`
+**Nom du challenge:** `Linux Permissions Master`  
+**Catégorie:** Système  
+**Difficulté:** Facile  
+**Points:** 100 points
 
-**Contexte** : Vous êtes administrateur système. Un ancien admin a laissé des comptes utilisateurs avec des mots de passe cryptés. Vous devez décrypter les identifiants, créer les utilisateurs/groups, et configurer les permissions d'accès à des fichiers sensibles.
+### Scénario
+```
+Vous êtes un stagiaire en cybersécurité. Votre responsable a quitté l'entreprise brutalement
+en laissant des comptes utilisateurs avec des mots de passe cryptés. Votre mission est de
+retrouver l'accès au système et de trouver le flag caché dans les fichiers sensibles.
 
-## Compétences validées
-
-- ✅ **Variables d'environnement et décryptage**
-- ✅ **Gestion utilisateurs/groupes** (useradd, usermod, groupadd)
-- ✅ **Permissions Linux basiques** (chmod, chown)
-- ✅ **Création d'arborescence et contenu**
-- ✅ **Permissions avancées ACL** (setfacl, getfacl)
-- ✅ **Tests et vérifications d'accès**
+Attention: Des mécanismes de protection (ACL, permissions spéciales) ont été mis en place!
+```
