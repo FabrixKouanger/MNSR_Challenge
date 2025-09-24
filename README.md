@@ -3,7 +3,7 @@
 ## 📋 Description
 **Catégorie:** Système  
 **Difficulté:** Facile (100 points)  
-**Auteur:** Votre Équipe
+**Auteur:** Younes CHAB, Fabrice KOUANGA, Libasse MBENGUE
 
 ## 🎯 Scénario
 ```
