@@ -1,30 +1,36 @@
-# Challenge Root-Me: Linux Permissions Master
+# Méthodologie de création du CTF
 
-## Objectif
-Trouvez le vrai flag caché dans le système!
+## Objectifs pédagogiques
+- Comprendre les permissions Linux basiques
+- Maîtriser les ACL avancées
+- Exploiter les bits SUID
+- Analyser la sécurité système
 
-## Accès initial
-- **Utilisateurs disponibles:** rootme_user1, rootme_user2, admin_user
-- **Mot de passe:** PASSWORD123 (pour tous)
-- **Groupe:** security_grp
+## Architecture technique
 
-## Indices
-1. Certains fichiers ont des permissions spéciales
-2. Les ACL peuvent restreindre l'accès
-3. Les bits SUID peuvent être exploités
-4. Ne faites pas confiance aux apparences!
+### 1. Structure des permissions
 
-## Commandes utiles
-```bash
-# Connexion aux utilisateurs
-su - rootme_user1
-su - rootme_user2
+/ctf/
+├── public/ (775) - Accès groupe
+├── private/ (700) - Admin seulement
+├── restricted/ (750+ACL) - Accès différencié
+└── binaries/ (4755) - SUID activé
 
-# Analyse des permissions
-ls -la /ctf
-getfacl /ctf/restricted
-find /ctf -perm -4000  # Fichiers SUID
+### 2. Mécanismes de sécurité implémentés
+- **Permissions basiques** (chmod/chown)
+- **ACL** (setfacl/getfacl) 
+- **SUID** (élévation de privilèges)
+- **Décryptage base64** (introduction)
 
-# Test d'accès
-cat /ctf/private/flag_test.txt
-/ctf/binaries/create_flag
+### 3. Éléments de difficulté progressive
+1. Décryptage simple ✅
+2. Exploration basique ✅  
+3. Analyse permissions ✅
+4. Exploitation SUID ✅
+
+## Tests de validation
+- [x] Accès différencié par utilisateur
+- [x] Exploitation SUID fonctionnelle
+- [x] Flags multiples (leurres + réel)
+- [x] Solution claire et reproductible
+
