@@ -287,11 +287,3 @@ echo "Bonne chance aux participants!"
 1. **Faux flag:** `RM{fake_flag_do_not_submit}`
 2. **Leurre:** `RM{linux_permissions_master_001}`  
 3. **Vrai flag:** `RM{suid_bit_escalation_1337}`
-
-### Compétences évaluées:
-- Compréhension des permissions Unix
-- Maîtrise des commandes système
-- Identification des vecteurs d'élévation de privilèges
-- Analyse de sécurité basique
-
-Ce CTF reproduit un scénario réaliste de pentest Linux avec une difficulté progressive parfaite pour une initiation Root-Me! 🔥
