@@ -1,6 +1,6 @@
 # Exercice collaboratif : Challenge Gestion des utilisateurs, permissions et ACL
 
-## 🎯 Objectif
+## Objectif
 Décrypter des identifiants cachés et configurer un système de permissions sécurisé en ligne de commande.
 
 ### Mission complète
@@ -13,7 +13,7 @@ Décrypter des identifiants cachés et configurer un système de permissions sé
 ## Comment participer
 Vous devez **forker votre repo GitHub** et **exécuter les commandes ligne par ligne** en suivant un guide interactif.
 
-## 📋 Étapes du challenge
+## Étapes du challenge
 - Étape 1 : Décryptage des variables d'environnement
 - Étape 2 : Création des utilisateurs et groupes  
 - Étape 3 : Configuration des permissions
@@ -186,7 +186,7 @@ EOF
 
 echo "Création du fichier secret :"
 sudo tee /opt/$GROUP/private/$SECRET_FILE > /dev/null << EOF
-🌟 INFORMATIONS CONFIDENTIELLES 🌟
+* INFORMATIONS CONFIDENTIELLES *
 Utilisateur: super_admin
 Mot de passe: TrèsSecret123!
 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
@@ -326,7 +326,7 @@ echo "   $ADMIN_USER a le contrôle total → Administration maintenue"
 
 ---
 
-## 🎯 Bilan de compétences démontrées
+## Bilan de compétences démontrées
 
 ✅ **Décryptage variables** : Maîtrise de base64 et variables env  
 ✅ **Gestion users/groups** : useradd, usermod, groupadd, chpasswd  
