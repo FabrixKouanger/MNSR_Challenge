@@ -202,10 +202,11 @@ Le flag valide commence par `RM{` et se termine par `}`
 
 Soumettez-le sur la plateforme Root-Me!
 ```
-
+```
 ## Étape 5: Solution attendue
 
 ### Script de solution: `solution_walkthrough.sh`
+
 ```bash
 #!/bin/bash
 echo "Solution du CTF Linux Permissions Master"
