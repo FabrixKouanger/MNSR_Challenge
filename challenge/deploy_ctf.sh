@@ -1,5 +1,3 @@
-
-```bash
 #!/bin/bash
 # ROOT-ME CTF: Script de déploiement principal
 
@@ -31,6 +29,7 @@ apt-get install -y acl gcc > /dev/null 2>&1
 
 # Exécution des scripts de configuration
 echo -e "${YELLOW}🔧 Configuration du challenge...${NC}"
+cd "$(dirname "$0")"  # Se positionner dans le dossier challenge
 chmod +x setup_challenge.sh secure_challenge.sh
 
 ./setup_challenge.sh
