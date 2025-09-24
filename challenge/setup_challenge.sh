@@ -20,32 +20,49 @@ SECRET_FILE=$(decrypt "ZmxhZ190ZXN0LnR4dA==")
 echo "🎯 Identifiants décryptés:"
 echo "   • Utilisateurs: $USER1, $USER2, $ADMIN_USER"
 echo "   • Groupe: $GROUP"
+echo "   • Mot de passe: $PASSWORD"
 echo "   • Fichier secret: $SECRET_FILE"
 
 # Création des utilisateurs
 echo "👥 Création des comptes utilisateurs..."
 for user in $USER1 $USER2 $ADMIN_USER; do
     if id "$user" &>/dev/null; then
-        echo "   ℹ️  Utilisateur $user existe déjà"
-    else
-        useradd -m -s /bin/bash "$user" 2>/dev/null
-        echo "$user:$PASSWORD" | chpasswd
-        echo "   ✅ $user créé"
+        echo "   ℹ️  Utilisateur $user existe déjà - suppression..."
+        userdel -r "$user" 2>/dev/null || true
     fi
+    
+    # Création avec home directory
+    useradd -m -s /bin/bash "$user"
+    echo "   ✅ Utilisateur $user créé"
+    
+    # Définition du mot de passe (méthode plus fiable)
+    echo "$user:$PASSWORD" | chpasswd
+    echo "   ✅ Mot de passe défini pour $user"
 done
 
 # Création du groupe
 if getent group "$GROUP" >/dev/null; then
-    echo "   ℹ️  Groupe $GROUP existe déjà"
-else
-    groupadd "$GROUP"
-    echo "   ✅ Groupe $GROUP créé"
+    echo "   ℹ️  Groupe $GROUP existe déjà - suppression..."
+    groupdel "$GROUP" 2>/dev/null || true
 fi
+
+groupadd "$GROUP"
+echo "   ✅ Groupe $GROUP créé"
 
 # Ajout au groupe
 usermod -aG "$GROUP" "$USER1"
 usermod -aG "$GROUP" "$USER2"
 echo "   ✅ Utilisateurs ajoutés au groupe $GROUP"
+
+# Vérification des utilisateurs
+echo "🔍 Vérification finale des comptes..."
+for user in $USER1 $USER2 $ADMIN_USER; do
+    if id "$user" &>/dev/null; then
+        echo "   ✅ $user: $(id $user)"
+    else
+        echo "   ❌ $user: ERREUR"
+    fi
+done
 
 # Création de l'arborescence
 echo "📁 Création de l'environnement /ctf/..."
@@ -90,14 +107,11 @@ cat > /tmp/create_flag.c << 'EOF'
 #include <unistd.h>
 
 int main() {
-    if (setuid(0) == 0) {
-        system("echo 'Vrai flag: RM{suid_bit_escalation_1337}' > /ctf/private/real_flag.txt");
-        system("chown admin_user:admin_user /ctf/private/real_flag.txt");
-        system("chmod 600 /ctf/private/real_flag.txt");
-        printf("Flag créé! Maintenant, trouvez comment le lire...\n");
-    } else {
-        printf("Échec de l'élévation de privilèges.\n");
-    }
+    printf("Création du vrai flag...\n");
+    system("echo 'Vrai flag: RM{suid_bit_escalation_1337}' > /ctf/private/real_flag.txt");
+    system("chown admin_user:admin_user /ctf/private/real_flag.txt");
+    system("chmod 600 /ctf/private/real_flag.txt");
+    printf("Flag créé! Maintenant, trouvez comment le lire...\n");
     return 0;
 }
 EOF
