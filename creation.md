@@ -9,12 +9,13 @@
 ## Architecture technique
 
 ### 1. Structure des permissions
-
+```bash
 /ctf/
 ├── public/ (775) - Accès groupe
 ├── private/ (700) - Admin seulement
 ├── restricted/ (750+ACL) - Accès différencié
 └── binaries/ (4755) - SUID activé
+```
 
 ### 2. Mécanismes de sécurité implémentés
 - **Permissions basiques** (chmod/chown)
