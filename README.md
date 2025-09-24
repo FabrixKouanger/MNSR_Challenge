@@ -1,4 +1,3 @@
-```markdown
 # 🚀 CTF Root-Me : Linux Permissions Master
 
 ## 📋 Description
