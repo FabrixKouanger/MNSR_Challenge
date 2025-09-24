@@ -10,7 +10,7 @@ echo "c2VjdXJpdHlfZ3Jw" | base64 -d    # security_grp
 echo "ZmxhZ190ZXN0LnR4dA==" | base64 -d # flag_test.txt
 ```
 
-Étape 2: Exploration initiale
+## Étape 2: Exploration initiale
 ```bash
 
 # Connexion avec rootme_user1
@@ -21,7 +21,7 @@ password: PASSWORD123
 ls -la /ctf
 ```
 
-Étape 3: Analyse des permissions
+## Étape 3: Analyse des permissions
 ```bash
 
 # Vérification des ACL
@@ -32,7 +32,7 @@ getfacl /ctf/restricted
 cat /ctf/restricted/hint.txt
 ```
 
-Étape 4: Exploitation du SUID
+## Étape 4: Exploitation du SUID
 ```bash
 
 # Recherche des binaires SUID
@@ -43,7 +43,7 @@ find /ctf -perm -4000 2>/dev/null
 /ctf/binaries/create_flag
 ```
 
-Étape 5: Récupération du flag
+## Étape 5: Récupération du flag
 ```bash
 
 # Le binaire a créé le vrai flag
