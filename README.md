@@ -1,4 +1,4 @@
-# 🚀 CTF Root-Me : Linux Permissions Master
+# 🚀 CTF : Linux Permissions Master
 
 ## 📋 Description
 **Catégorie:** Système  
